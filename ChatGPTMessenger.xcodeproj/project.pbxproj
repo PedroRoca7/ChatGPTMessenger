@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE6F81D32A0D8F1600CE396C /* send.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE6F81D22A0D8F1500CE396C /* send.wav */; };
 		CE860F8F2A0B116900E88384 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE860F8E2A0B116900E88384 /* AppDelegate.swift */; };
 		CE860F912A0B116900E88384 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE860F902A0B116900E88384 /* SceneDelegate.swift */; };
 		CE860F932A0B116900E88384 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE860F922A0B116900E88384 /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE6F81D22A0D8F1500CE396C /* send.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = send.wav; path = "../../../../../Downloads/CHATGPT - WILL ADICIONE ESSE ARQUIVO EM TODOS OS VIDEOS DO CHATGPT POIS É O ARQUIVO DO PROJETO INICIAL/CHATGPT/Utils/Sound/send.wav"; sourceTree = "<group>"; };
 		CE860F8B2A0B116900E88384 /* ChatGPTMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatGPTMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE860F8E2A0B116900E88384 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE860F902A0B116900E88384 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE6F81D12A0D8EF200CE396C /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				CE6F81D22A0D8F1500CE396C /* send.wav */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
 		CE860F822A0B116800E88384 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +115,7 @@
 		CE860F8D2A0B116900E88384 /* ChatGPTMessenger */ = {
 			isa = PBXGroup;
 			children = (
+				CE6F81D12A0D8EF200CE396C /* Sound */,
 				CEF0A9692A0C8B580042069B /* ViewModel */,
 				CEF0A9632A0C81AB0042069B /* Services */,
 				CEF0A95F2A0C746F0042069B /* Delegates */,
@@ -279,6 +290,7 @@
 			files = (
 				CE860F9B2A0B116F00E88384 /* LaunchScreen.storyboard in Resources */,
 				CE860F982A0B116F00E88384 /* Assets.xcassets in Resources */,
+				CE6F81D32A0D8F1600CE396C /* send.wav in Resources */,
 				CE860F962A0B116900E88384 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

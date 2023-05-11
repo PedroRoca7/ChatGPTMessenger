@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import AVFoundation
 
 class ChatManager {
     
     let api = API()
-    
+    var player: AVAudioPlayer?
     
     
     func requestChat(text: String) {
@@ -21,6 +22,19 @@ class ChatManager {
             case .failure(let failure):
                 print(failure.localizedDescription)
             }
+        }
+    }
+    
+    func playsound() {
+        guard let url = Bundle.main.url(forResource: "send", withExtension: "wav") else { return }
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+            self.player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.wav.rawValue)
+            guard let player = self.player else { return }
+            player.play()
+        } catch let error {
+            print("Erro ao tocar o som: \(error.localizedDescription)")
         }
     }
     

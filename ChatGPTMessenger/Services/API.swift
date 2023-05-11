@@ -15,7 +15,7 @@ enum OpenAIError: Error {
 
 class API {
     
-    static let authToken: String = "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"
+    static let authToken: String = ""
     var openAIModelType: OpenAIModelType = .gpt3(.davinci)
     var token: OpenAISwift = OpenAISwift(authToken: authToken)
     
