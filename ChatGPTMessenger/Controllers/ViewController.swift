@@ -16,17 +16,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var inputMessageView: UIView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
-
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Inverte a tableView para que as mensagens apareçam na parte inferior da tableView
+        tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
+        
         // Registrar observadores para notificações de teclado
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-                NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     // Método chamado quando o teclado está prestes a aparecer
@@ -47,7 +45,7 @@ class ViewController: UIViewController {
     
     // Método chamado quando o teclado está prestes a desaparecer
     @objc func keyboardWillHide(notification: NSNotification) {
-        // Restaure a constante de constraint vertical inferior para o valor original (0)
+        // Restaure a constante de constraint vertical inferior para o valor original
         bottomConstraint.constant = 0
         
         // Animação da atualização da constraint
@@ -56,11 +54,12 @@ class ViewController: UIViewController {
         }
     }
     
-    // Certifique-se de remover os observadores de notificação quando a view controller for destruída
+    // Remove os observadores de notificação quando a view controller for destruída
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
+    // Método chamado quando o botão de enviar a mensagem é pressionado.
     @IBAction func sendMessage(_ sender: Any) {
         messageTextField.resignFirstResponder()
     }

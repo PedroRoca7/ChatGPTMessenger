@@ -16,6 +16,7 @@
 		CE860FA62A0B117000E88384 /* ChatGPTMessengerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE860FA52A0B117000E88384 /* ChatGPTMessengerTests.swift */; };
 		CE860FB02A0B117000E88384 /* ChatGPTMessengerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE860FAF2A0B117000E88384 /* ChatGPTMessengerUITests.swift */; };
 		CE860FB22A0B117000E88384 /* ChatGPTMessengerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE860FB12A0B117000E88384 /* ChatGPTMessengerUITestsLaunchTests.swift */; };
+		CEF0A9622A0C7D770042069B /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = CEF0A9612A0C7D770042069B /* OpenAISwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF0A9622A0C7D770042069B /* OpenAISwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,12 +101,11 @@
 		CE860F8D2A0B116900E88384 /* ChatGPTMessenger */ = {
 			isa = PBXGroup;
 			children = (
-				CE860F8E2A0B116900E88384 /* AppDelegate.swift */,
-				CE860F902A0B116900E88384 /* SceneDelegate.swift */,
-				CE860F922A0B116900E88384 /* ViewController.swift */,
+				CEF0A95F2A0C746F0042069B /* Delegates */,
+				CEF0A95E2A0C744A0042069B /* Controllers */,
 				CE860F942A0B116900E88384 /* Main.storyboard */,
-				CE860F972A0B116F00E88384 /* Assets.xcassets */,
 				CE860F992A0B116F00E88384 /* LaunchScreen.storyboard */,
+				CE860F972A0B116F00E88384 /* Assets.xcassets */,
 				CE860F9C2A0B116F00E88384 /* Info.plist */,
 			);
 			path = ChatGPTMessenger;
@@ -127,6 +128,23 @@
 			path = ChatGPTMessengerUITests;
 			sourceTree = "<group>";
 		};
+		CEF0A95E2A0C744A0042069B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE860F922A0B116900E88384 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CEF0A95F2A0C746F0042069B /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				CE860F8E2A0B116900E88384 /* AppDelegate.swift */,
+				CE860F902A0B116900E88384 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +161,9 @@
 			dependencies = (
 			);
 			name = ChatGPTMessenger;
+			packageProductDependencies = (
+				CEF0A9612A0C7D770042069B /* OpenAISwift */,
+			);
 			productName = ChatGPTMessenger;
 			productReference = CE860F8B2A0B116900E88384 /* ChatGPTMessenger.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +236,9 @@
 				Base,
 			);
 			mainGroup = CE860F822A0B116800E88384;
+			packageReferences = (
+				CEF0A9602A0C7D770042069B /* XCRemoteSwiftPackageReference "OpenAISwift" */,
+			);
 			productRefGroup = CE860F8C2A0B116900E88384 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -602,6 +626,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CEF0A9602A0C7D770042069B /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adamrushy/OpenAISwift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CEF0A9612A0C7D770042069B /* OpenAISwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEF0A9602A0C7D770042069B /* XCRemoteSwiftPackageReference "OpenAISwift" */;
+			productName = OpenAISwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CE860F832A0B116800E88384 /* Project object */;
 }
