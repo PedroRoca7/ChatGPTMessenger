@@ -17,6 +17,8 @@
 		CE860FB02A0B117000E88384 /* ChatGPTMessengerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE860FAF2A0B117000E88384 /* ChatGPTMessengerUITests.swift */; };
 		CE860FB22A0B117000E88384 /* ChatGPTMessengerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE860FB12A0B117000E88384 /* ChatGPTMessengerUITestsLaunchTests.swift */; };
 		CEF0A9622A0C7D770042069B /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = CEF0A9612A0C7D770042069B /* OpenAISwift */; };
+		CEF0A9652A0C81BE0042069B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF0A9642A0C81BE0042069B /* API.swift */; };
+		CEF0A96B2A0C8B8E0042069B /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF0A96A2A0C8B8E0042069B /* ChatManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		CE860FAB2A0B117000E88384 /* ChatGPTMessengerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatGPTMessengerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE860FAF2A0B117000E88384 /* ChatGPTMessengerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTMessengerUITests.swift; sourceTree = "<group>"; };
 		CE860FB12A0B117000E88384 /* ChatGPTMessengerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTMessengerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CEF0A9642A0C81BE0042069B /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		CEF0A96A2A0C8B8E0042069B /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 		CE860F8D2A0B116900E88384 /* ChatGPTMessenger */ = {
 			isa = PBXGroup;
 			children = (
+				CEF0A9692A0C8B580042069B /* ViewModel */,
+				CEF0A9632A0C81AB0042069B /* Services */,
 				CEF0A95F2A0C746F0042069B /* Delegates */,
 				CEF0A95E2A0C744A0042069B /* Controllers */,
 				CE860F942A0B116900E88384 /* Main.storyboard */,
@@ -143,6 +149,22 @@
 				CE860F902A0B116900E88384 /* SceneDelegate.swift */,
 			);
 			path = Delegates;
+			sourceTree = "<group>";
+		};
+		CEF0A9632A0C81AB0042069B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CEF0A9642A0C81BE0042069B /* API.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CEF0A9692A0C8B580042069B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CEF0A96A2A0C8B8E0042069B /* ChatManager.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,8 +304,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF0A96B2A0C8B8E0042069B /* ChatManager.swift in Sources */,
 				CE860F932A0B116900E88384 /* ViewController.swift in Sources */,
 				CE860F8F2A0B116900E88384 /* AppDelegate.swift in Sources */,
+				CEF0A9652A0C81BE0042069B /* API.swift in Sources */,
 				CE860F912A0B116900E88384 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

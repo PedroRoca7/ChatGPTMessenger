@@ -7,14 +7,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
 
+class ViewController: UIViewController {
+    
     @IBOutlet weak var messageBarView: UIView!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var inputMessageView: UIView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    var responseChat = ChatManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,10 +63,12 @@ class ViewController: UIViewController {
     
     // Método chamado quando o botão de enviar a mensagem é pressionado.
     @IBAction func sendMessage(_ sender: Any) {
+        guard let text = messageTextField.text else { return }
+        responseChat.requestChat(text: text)
         messageTextField.resignFirstResponder()
     }
     
-
-
+    
+    
 }
 
