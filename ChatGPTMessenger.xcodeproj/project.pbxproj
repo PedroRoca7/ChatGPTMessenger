@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		CE6F81D32A0D8F1600CE396C /* send.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE6F81D22A0D8F1500CE396C /* send.wav */; };
+		CE6F81D62A0D942900CE396C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F81D52A0D942900CE396C /* Extensions.swift */; };
+		CE6F81D92A0D950F00CE396C /* OutgoingTextMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F81D82A0D950F00CE396C /* OutgoingTextMessageTableViewCell.swift */; };
+		CE6F81DC2A0DCED300CE396C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F81DB2A0DCED300CE396C /* TableViewController.swift */; };
+		CE6F81DE2A0DD06800CE396C /* IncomingTextMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F81DD2A0DD06800CE396C /* IncomingTextMessageTableViewCell.swift */; };
 		CE860F8F2A0B116900E88384 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE860F8E2A0B116900E88384 /* AppDelegate.swift */; };
 		CE860F912A0B116900E88384 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE860F902A0B116900E88384 /* SceneDelegate.swift */; };
 		CE860F932A0B116900E88384 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE860F922A0B116900E88384 /* ViewController.swift */; };
@@ -41,6 +45,10 @@
 
 /* Begin PBXFileReference section */
 		CE6F81D22A0D8F1500CE396C /* send.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = send.wav; path = "../../../../../Downloads/CHATGPT - WILL ADICIONE ESSE ARQUIVO EM TODOS OS VIDEOS DO CHATGPT POIS É O ARQUIVO DO PROJETO INICIAL/CHATGPT/Utils/Sound/send.wav"; sourceTree = "<group>"; };
+		CE6F81D52A0D942900CE396C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CE6F81D82A0D950F00CE396C /* OutgoingTextMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingTextMessageTableViewCell.swift; sourceTree = "<group>"; };
+		CE6F81DB2A0DCED300CE396C /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		CE6F81DD2A0DD06800CE396C /* IncomingTextMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingTextMessageTableViewCell.swift; sourceTree = "<group>"; };
 		CE860F8B2A0B116900E88384 /* ChatGPTMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatGPTMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE860F8E2A0B116900E88384 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE860F902A0B116900E88384 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +100,31 @@
 			path = Sound;
 			sourceTree = "<group>";
 		};
+		CE6F81D42A0D941800CE396C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CE6F81D52A0D942900CE396C /* Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CE6F81D72A0D94F900CE396C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CE6F81D82A0D950F00CE396C /* OutgoingTextMessageTableViewCell.swift */,
+				CE6F81DD2A0DD06800CE396C /* IncomingTextMessageTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		CE6F81DA2A0DCEA400CE396C /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CE6F81DB2A0DCED300CE396C /* TableViewController.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
 		CE860F822A0B116800E88384 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +148,9 @@
 		CE860F8D2A0B116900E88384 /* ChatGPTMessenger */ = {
 			isa = PBXGroup;
 			children = (
+				CE6F81DA2A0DCEA400CE396C /* TableViewCell */,
+				CE6F81D72A0D94F900CE396C /* Cell */,
+				CE6F81D42A0D941800CE396C /* Extensions */,
 				CE6F81D12A0D8EF200CE396C /* Sound */,
 				CEF0A9692A0C8B580042069B /* ViewModel */,
 				CEF0A9632A0C81AB0042069B /* Services */,
@@ -317,10 +353,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEF0A96B2A0C8B8E0042069B /* ChatManager.swift in Sources */,
+				CE6F81D62A0D942900CE396C /* Extensions.swift in Sources */,
 				CE860F932A0B116900E88384 /* ViewController.swift in Sources */,
+				CE6F81DC2A0DCED300CE396C /* TableViewController.swift in Sources */,
 				CE860F8F2A0B116900E88384 /* AppDelegate.swift in Sources */,
 				CEF0A9652A0C81BE0042069B /* API.swift in Sources */,
+				CE6F81D92A0D950F00CE396C /* OutgoingTextMessageTableViewCell.swift in Sources */,
 				CE860F912A0B116900E88384 /* SceneDelegate.swift in Sources */,
+				CE6F81DE2A0DD06800CE396C /* IncomingTextMessageTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

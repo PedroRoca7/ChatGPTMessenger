@@ -13,7 +13,7 @@ class ChatManager {
     let api = API()
     var player: AVAudioPlayer?
     
-    
+    // Método que faz a chamada da API.
     func requestChat(text: String) {
         api.sendOpenAIRequest(text: text) { result in
             switch result {
@@ -25,6 +25,7 @@ class ChatManager {
         }
     }
     
+    // Método que faz emitir o som.
     func playsound() {
         guard let url = Bundle.main.url(forResource: "send", withExtension: "wav") else { return }
         do {

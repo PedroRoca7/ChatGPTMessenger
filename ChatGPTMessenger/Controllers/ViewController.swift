@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         
         // Inverte a tableView para que as mensagens apareçam na parte inferior da tableView
         tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
-        
+
         // Registrar observadores para notificações de teclado
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -74,14 +74,3 @@ class ViewController: UIViewController {
     
 }
 
-extension UIButton {
-    func touchAnimation() {
-        UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: .curveEaseInOut) {
-            self.transform = CGAffineTransform(scaleX: 0.80, y: 0.80)
-        } completion: { finish in UIButton.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0, options: .curveEaseInOut) {
-            self.transform = .identity
-            }
-
-        }
-    }
-}
