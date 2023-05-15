@@ -8,7 +8,7 @@
 import UIKit
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var messageBarView: UIView!
     @IBOutlet weak var messageTextField: UITextField!
@@ -21,12 +21,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        messageTextField.delegate = self
         // Inverte a tableView para que as mensagens apareçam na parte inferior da tableView
         tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
-
+        
         // Registrar observadores para notificações de teclado
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        // Registra observador para verificar se o UITextField foi alterado
+        messageTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+
+    
     }
     
     // Método chamado quando o teclado está prestes a aparecer
@@ -63,14 +69,35 @@ class ViewController: UIViewController {
     
     // Método chamado quando o botão de enviar a mensagem é pressionado.
     @IBAction func sendMessage(_ sender: Any) {
+      messageSend()
+    }
+    // Método chamado quando o botão enviar do Keyboard é pressionado.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let text = textField.text, !text.isEmpty {
+            messageSend()
+            return true
+        } else {
+            return false
+        }
+    }
+    // Método que verifica se UITextField está vazio ou não.
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        if let text = textField.text, !text.isEmpty {
+            sendButton.isEnabled = true
+            sendButton.backgroundColor = .green
+        } else {
+            sendButton.isEnabled = false
+            sendButton.backgroundColor = .darkGray
+        }
+    }
+    private func messageSend() {
         guard let text = messageTextField.text else { return }
         responseChat.requestChat(text: text)
         responseChat.playsound()
         sendButton.touchAnimation()
         messageTextField.resignFirstResponder()
+        messageTextField.text = ""
+        sendButton.backgroundColor = .darkGray
     }
-    
-    
-    
 }
 

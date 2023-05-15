@@ -12,6 +12,7 @@ class ChatManager {
     
     let api = API()
     var player: AVAudioPlayer?
+    private var messageList: [Message] = []
     
     // Método que faz a chamada da API.
     func requestChat(text: String) {
@@ -39,4 +40,16 @@ class ChatManager {
         }
     }
     
+
+    public var numberOfRowsInSection: Int {
+        return messageList.count
+    }
+
+    public func loadCurrentMessage(indexPath: IndexPath) -> Message {
+        return messageList[indexPath.row]
+    }
+    
+    public func heightForRow(indexPath: IndexPath) -> CGFloat {
+       return 200
+    }
 }

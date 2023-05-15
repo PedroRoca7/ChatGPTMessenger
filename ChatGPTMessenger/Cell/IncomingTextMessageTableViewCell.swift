@@ -23,9 +23,9 @@ class IncomingTextMessageTableViewCell: UITableViewCell {
 
     }
     
-    public func setupCell(text: String) {
+    public func setupCell(data: Message) {
         contactMessageView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMinYCorner, .layerMaxXMinYCorner]
-        messageLabel.text = text
+        messageLabel.text = data.message
     }
 
 }
