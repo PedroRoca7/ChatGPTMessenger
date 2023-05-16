@@ -12,8 +12,6 @@ class IncomingTextMessageTableViewCell: UITableViewCell {
     @IBOutlet weak var contactMessageView: UIView!
     @IBOutlet weak var messageLabel: UILabel!
     
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

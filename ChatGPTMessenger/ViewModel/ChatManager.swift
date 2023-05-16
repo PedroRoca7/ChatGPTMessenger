@@ -13,20 +13,21 @@ class ChatManager {
     
     let api = API()
     var player: AVAudioPlayer?
-    private var messageList: [Message] = []
+    var messageList: [Message] = []
     
     // Método que faz a chamada da API.
     func requestChat(text: String) {
-        api.sendOpenAIRequest(text: text) { result in
+        api.sendOpenAIRequest(text: text) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let success):
+                self.messageList.append(Message.init(message: success, typeMessage: .chatGPT))
                 print(success)
             case .failure(let failure):
                 print(failure.localizedDescription)
             }
         }
     }
-    
     // Método que faz emitir o som.
     func playsound() {
         guard let url = Bundle.main.url(forResource: "send", withExtension: "wav") else { return }

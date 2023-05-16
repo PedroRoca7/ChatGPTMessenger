@@ -15,8 +15,38 @@ extension UIButton {
             self.transform = CGAffineTransform(scaleX: 0.80, y: 0.80)
         } completion: { finish in UIButton.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0, options: .curveEaseInOut) {
             self.transform = .identity
-            }
-
         }
+            
+        }
+    }
+}
+
+// Extensão para configurar a tableView.
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return responseChat.messageList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let message = responseChat.loadCurrentMessage(indexPath: indexPath)
+        
+        switch message.typeMessage {
+        case .user:
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "OutgoingTextMessageTableViewCell", for: indexPath) as? OutgoingTextMessageTableViewCell
+            cell?.setupCell(data: message)
+            return cell ?? UITableViewCell()
+            
+        case .chatGPT:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "IncomingTextMessageTableViewCell", for: indexPath) as? IncomingTextMessageTableViewCell
+            cell?.setupCell(data: message)
+            return cell ?? UITableViewCell()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return responseChat.heightForRow(indexPath: indexPath)
     }
 }

@@ -22,8 +22,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         messageTextField.delegate = self
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
         // Inverte a tableView para que as mensagens apareçam na parte inferior da tableView
-        tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
+        //tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
         
         // Registrar observadores para notificações de teclado
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -31,8 +35,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         // Registra observador para verificar se o UITextField foi alterado
         messageTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-
-    
+        
+        
     }
     
     // Método chamado quando o teclado está prestes a aparecer
@@ -69,7 +73,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // Método chamado quando o botão de enviar a mensagem é pressionado.
     @IBAction func sendMessage(_ sender: Any) {
-      messageSend()
+        messageSend()
     }
     // Método chamado quando o botão enviar do Keyboard é pressionado.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -92,6 +96,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     private func messageSend() {
         guard let text = messageTextField.text else { return }
+        responseChat.messageList.append(Message.init(message: text,typeMessage: .user))
+        tableView.reloadData()
         responseChat.requestChat(text: text)
         responseChat.playsound()
         sendButton.touchAnimation()
@@ -100,4 +106,5 @@ class ViewController: UIViewController, UITextFieldDelegate {
         sendButton.backgroundColor = .darkGray
     }
 }
+
 
