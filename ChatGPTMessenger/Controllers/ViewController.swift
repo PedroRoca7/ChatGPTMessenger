@@ -98,12 +98,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         guard let text = messageTextField.text else { return }
         responseChat.messageList.append(Message.init(message: text,typeMessage: .user))
         tableView.reloadData()
-        responseChat.requestChat(text: text)
         responseChat.playsound()
         sendButton.touchAnimation()
         messageTextField.resignFirstResponder()
         messageTextField.text = ""
         sendButton.backgroundColor = .darkGray
+        responseChat.requestChat(text: text)
     }
 }
 
