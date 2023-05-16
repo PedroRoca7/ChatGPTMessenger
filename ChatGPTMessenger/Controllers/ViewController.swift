@@ -103,7 +103,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         messageTextField.resignFirstResponder()
         messageTextField.text = ""
         sendButton.backgroundColor = .darkGray
-        responseChat.requestChat(text: text)
+        responseChat.requestChat(text: text) { response in
+            if response == true {
+                self.tableView.reloadData()
+            } else {
+                print("Erro")
+            }
+        }
     }
 }
 

@@ -8,6 +8,7 @@
 import Foundation
 import AVFoundation
 import UIKit
+import CoreGraphics
 
 class ChatManager {
     
@@ -16,14 +17,16 @@ class ChatManager {
     var messageList: [Message] = []
     
     // Método que faz a chamada da API.
-    func requestChat(text: String) {
+    func requestChat(text: String, completionHandler: @escaping (Bool) -> Void) {
         api.sendOpenAIRequest(text: text) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let success):
                 self.messageList.append(Message.init(message: success, typeMessage: .chatGPT))
+                completionHandler(true)
                 print(success)
             case .failure(let failure):
+                completionHandler(false)
                 print(failure.localizedDescription)
             }
         }
@@ -52,6 +55,6 @@ class ChatManager {
     }
     
     public func heightForRow(indexPath: IndexPath) -> CGFloat {
-       return 200
+        return 200
     }
 }
