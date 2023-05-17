@@ -98,6 +98,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         guard let text = messageTextField.text else { return }
         responseChat.messageList.append(Message.init(message: text,typeMessage: .user))
         tableView.reloadData()
+        scrollToBottom()
         responseChat.playsound()
         sendButton.touchAnimation()
         messageTextField.resignFirstResponder()
@@ -106,9 +107,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         responseChat.requestChat(text: text) { response in
             if response == true {
                 self.tableView.reloadData()
+                self.scrollToBottom()
             } else {
                 print("Erro")
             }
+        }
+    }
+    func scrollToBottom() {
+        if responseChat.messageList.count > 0 {
+            let lastRowIndex = IndexPath(row: responseChat.messageList.count - 1, section: 0)
+            tableView.scrollToRow(at: lastRowIndex, at: .bottom, animated: true)
         }
     }
 }

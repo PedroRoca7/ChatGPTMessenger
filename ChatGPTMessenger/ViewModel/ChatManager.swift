@@ -45,7 +45,6 @@ class ChatManager {
         }
     }
     
-
     public var numberOfRowsInSection: Int {
         return messageList.count
     }

@@ -47,6 +47,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return responseChat.heightForRow(indexPath: indexPath)
+        return 200
     }
 }
