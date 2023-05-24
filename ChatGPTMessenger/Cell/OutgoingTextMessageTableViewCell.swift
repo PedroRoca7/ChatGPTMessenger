@@ -22,8 +22,11 @@ class OutgoingTextMessageTableViewCell: UITableViewCell {
     }
 
     public func setupCell(data: Message) {
-        myMessageView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner, .layerMaxXMinYCorner]
-        messageLabel.text = data.message
+        UIView.performWithoutAnimation {
+            messageLabel.transform = CGAffineTransform(scaleX: 1, y: -1)
+            messageLabel.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner, .layerMaxXMaxYCorner]
+            messageLabel.text = data.message
+        }
     }
     
 }

@@ -22,7 +22,7 @@ class ChatManager {
             guard let self = self else { return }
             switch result {
             case .success(let success):
-                self.messageList.append(Message.init(message: success, typeMessage: .chatGPT))
+                self.addMessage(message: success, type: .chatGPT)
                 completionHandler(true)
                 print(success)
             case .failure(let failure):
@@ -45,6 +45,10 @@ class ChatManager {
         }
     }
     
+    public func addMessage(message: String, type: TypeMessage) {
+        messageList.insert(Message(message: message.trimmingCharacters(in: .whitespacesAndNewlines), date: Date(), typeMessage: type), at: .zero)
+    }
+    
     public var numberOfRowsInSection: Int {
         return messageList.count
     }
@@ -54,6 +58,11 @@ class ChatManager {
     }
     
     public func heightForRow(indexPath: IndexPath) -> CGFloat {
-        return 200
+        
+        let message = loadCurrentMessage(indexPath: indexPath).message
+        let font = UIFont.systemFont(ofSize: 16)
+        let estimateHeight = message.heightWithConstrainsWidth(width: 220, font: font)
+        
+        return estimateHeight + 65
     }
 }

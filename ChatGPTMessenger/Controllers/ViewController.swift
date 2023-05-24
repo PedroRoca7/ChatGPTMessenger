@@ -27,7 +27,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.tableView.dataSource = self
         
         // Inverte a tableView para que as mensagens apareçam na parte inferior da tableView
-        //tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
+        tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
         
         // Registrar observadores para notificações de teclado
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -96,7 +96,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     private func messageSend() {
         guard let text = messageTextField.text else { return }
-        responseChat.messageList.append(Message.init(message: text,typeMessage: .user))
+        responseChat.addMessage(message: text, type: .user)
         tableView.reloadData()
         scrollToBottom()
         responseChat.playsound()
@@ -115,8 +115,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     func scrollToBottom() {
         if responseChat.messageList.count > 0 {
-            let lastRowIndex = IndexPath(row: responseChat.messageList.count - 1, section: 0)
-            tableView.scrollToRow(at: lastRowIndex, at: .bottom, animated: true)
+            let lastRowIndex = IndexPath(row: 0, section: 0)
+            tableView.scrollToRow(at: lastRowIndex, at: .top, animated: true)
         }
     }
 }
