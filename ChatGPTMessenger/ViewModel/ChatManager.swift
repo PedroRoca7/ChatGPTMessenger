@@ -24,7 +24,6 @@ class ChatManager {
             case .success(let success):
                 self.addMessage(message: success, type: .chatGPT)
                 completionHandler(true)
-                print(success)
             case .failure(let failure):
                 completionHandler(false)
                 print(failure.localizedDescription)
@@ -45,6 +44,7 @@ class ChatManager {
         }
     }
     
+    // Método que adiciona a mensagem e quem mandou a mensagem.
     public func addMessage(message: String, type: TypeMessage) {
         messageList.insert(Message(message: message.trimmingCharacters(in: .whitespacesAndNewlines), date: Date(), typeMessage: type), at: .zero)
     }
