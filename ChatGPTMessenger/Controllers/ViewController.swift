@@ -16,6 +16,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var inputMessageView: UIView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
+    
     var responseChat = ChatManager()
     
     override func viewDidLoad() {
@@ -77,12 +79,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     // Método chamado quando o botão enviar do Keyboard é pressionado.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let text = textField.text, !text.isEmpty {
-            messageSend()
-            return true
-        } else {
-            return false
-        }
+        messageTextField.resignFirstResponder()
+        return true
     }
     // Método que verifica se UITextField está vazio ou não.
     @objc func textFieldDidChange(_ textField: UITextField) {
@@ -98,15 +96,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
         guard let text = messageTextField.text else { return }
         responseChat.addMessage(message: text, type: .user)
         tableView.reloadData()
+        loading.isHidden = false
         scrollToBottom()
-        responseChat.playsound()
         sendButton.touchAnimation()
-        messageTextField.resignFirstResponder()
+        
         messageTextField.text = ""
         sendButton.backgroundColor = .darkGray
         responseChat.requestChat(text: text) { response in
             if response == true {
+                self.responseChat.playsound()
                 self.tableView.reloadData()
+                self.loading.isHidden = true
                 self.scrollToBottom()
             } else {
                 print("Erro")

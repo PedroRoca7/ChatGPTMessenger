@@ -19,7 +19,6 @@ class API {
     var openAIModelType: OpenAIModelType = .gpt3(.davinci)
     var token: OpenAISwift = OpenAISwift(authToken: authToken)
     
-    
     func sendOpenAIRequest(text: String, completion: @escaping (Result<String, OpenAIError>) -> Void) {
         token.sendCompletion(with: text,model: openAIModelType, maxTokens: 4000, completionHandler: { result in
             DispatchQueue.main.async {

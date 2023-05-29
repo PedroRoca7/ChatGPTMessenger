@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vN9-FS-NVw">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7kI-R7-BLF">
-                                <rect key="frame" x="0.0" y="54" width="414" height="702"/>
+                                <rect key="frame" x="0.0" y="98" width="414" height="658"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="8" reuseIdentifier="OutgoingTextMessageTableViewCell" rowHeight="55" id="m3Y-Vn-Ezx" customClass="OutgoingTextMessageTableViewCell" customModule="ChatGPTMessenger" customModuleProvider="target">
@@ -119,7 +119,7 @@
                                                 <rect key="frame" x="5" y="19.5" width="284" height="21"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" returnKeyType="send"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet"/>
                                             </textField>
                                             <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vve-iu-0iv">
                                                 <rect key="frame" x="294" y="2.5" width="55" height="55"/>
@@ -180,22 +180,49 @@
                                     <constraint firstItem="02e-FW-Ahw" firstAttribute="leading" secondItem="l3A-1k-aph" secondAttribute="leading" constant="30" id="x3c-SM-kfE"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="0dl-D7-yjW">
+                                <rect key="frame" x="10" y="709" width="37" height="37"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.066666666666666666" green="0.082352941176470587" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="l3A-1k-aph" firstAttribute="top" secondItem="0dl-D7-yjW" secondAttribute="bottom" constant="10" id="7TS-rN-4Ki"/>
                             <constraint firstItem="7kI-R7-BLF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Esf-c0-L9X"/>
                             <constraint firstItem="7kI-R7-BLF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Kde-fR-U7r"/>
                             <constraint firstItem="l3A-1k-aph" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QzU-MB-5wj"/>
                             <constraint firstItem="l3A-1k-aph" firstAttribute="top" secondItem="7kI-R7-BLF" secondAttribute="bottom" id="RsI-kN-i9S"/>
+                            <constraint firstItem="0dl-D7-yjW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="jvA-pK-bMW"/>
                             <constraint firstItem="l3A-1k-aph" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="jvx-We-phw"/>
                             <constraint firstItem="l3A-1k-aph" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" constant="-20" identifier="bottomConstraint" id="upY-Ir-Sr4"/>
                             <constraint firstItem="7kI-R7-BLF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="xS7-ix-8kT"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="te8-PF-m6o">
+                        <nil key="title"/>
+                        <view key="titleView" contentMode="scaleToFill" id="CxV-0U-JTn">
+                            <rect key="frame" x="207" y="22" width="0.0" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chatgptOpenaiLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Rlb-t3-d12">
+                                    <rect key="frame" x="-844" y="-20" width="1688" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="rY8-15-Cmx"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="Rlb-t3-d12" firstAttribute="centerY" secondItem="CxV-0U-JTn" secondAttribute="centerY" id="3hN-J1-Fla"/>
+                                <constraint firstItem="Rlb-t3-d12" firstAttribute="centerX" secondItem="CxV-0U-JTn" secondAttribute="centerX" id="QRB-j0-0uS"/>
+                            </constraints>
+                        </view>
+                    </navigationItem>
                     <connections>
                         <outlet property="bottomConstraint" destination="upY-Ir-Sr4" id="Ldr-8L-0BK"/>
                         <outlet property="inputMessageView" destination="l3A-1k-aph" id="kaO-bi-YGE"/>
+                        <outlet property="loading" destination="0dl-D7-yjW" id="DhC-L3-hWO"/>
                         <outlet property="messageBarView" destination="02e-FW-Ahw" id="9YF-Vh-uj1"/>
                         <outlet property="messageTextField" destination="VgJ-B0-EmQ" id="ifG-5c-xlM"/>
                         <outlet property="sendButton" destination="vve-iu-0iv" id="tvx-wI-5Fz"/>
@@ -204,10 +231,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="28.985507246376812" y="67.633928571428569"/>
+            <point key="canvasLocation" x="1144.9275362318842" y="39.508928571428569"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3Az-YW-ZuN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vN9-FS-NVw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EKx-Iw-Fqa">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.90196078430000004" green="0.0" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
+                        <navigationBarAppearance key="standardAppearance">
+                            <color key="backgroundColor" red="0.90196078430000004" green="0.0" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
+                        </navigationBarAppearance>
+                        <navigationBarAppearance key="scrollEdgeAppearance" backgroundImageContentMode="scaleAspectFit">
+                            <color key="backgroundColor" red="0.90196078430000004" green="0.0" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
+                        </navigationBarAppearance>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="8BC-9W-sGR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q5t-ax-9au" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="234.78260869565219" y="39.508928571428569"/>
         </scene>
     </scenes>
     <resources>
+        <image name="chatgptOpenaiLogo" width="1688" height="1920"/>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
