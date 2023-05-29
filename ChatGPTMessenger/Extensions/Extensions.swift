@@ -25,7 +25,7 @@ extension UIButton {
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return responseChat.messageList.count
+        return responseChat.count()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -62,4 +62,19 @@ extension String {
         let boundingBox = self.boundingRect(with: contrainReact, options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: [NSAttributedString.Key.font: font], context: nil)
         return boundingBox.height
     }
+}
+
+extension ViewController: ChatManagerProtocol {
+    func success() {
+        responseChat.playsound()
+        reloadTableView()
+        loading.isHidden = true
+        scrollToBottom()
+    }
+    
+    func failure() {
+        print("Erro")
+    }
+    
+    
 }

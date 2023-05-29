@@ -27,6 +27,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.responseChat.delegate = self
         
         // Inverte a tableView para que as mensagens apareçam na parte inferior da tableView
         tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
@@ -95,26 +96,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
     private func messageSend() {
         guard let text = messageTextField.text else { return }
         responseChat.addMessage(message: text, type: .user)
-        tableView.reloadData()
+        reloadTableView()
         loading.isHidden = false
         scrollToBottom()
         sendButton.touchAnimation()
-        
         messageTextField.text = ""
         sendButton.backgroundColor = .darkGray
-        responseChat.requestChat(text: text) { response in
-            if response == true {
-                self.responseChat.playsound()
-                self.tableView.reloadData()
-                self.loading.isHidden = true
-                self.scrollToBottom()
-            } else {
-                print("Erro")
-            }
-        }
+        responseChat.requestChat(text: text)
     }
+    
+     func reloadTableView() {
+        tableView.reloadData()
+    }
+    
     func scrollToBottom() {
-        if responseChat.messageList.count > 0 {
+        if responseChat.count() > 0 {
             let lastRowIndex = IndexPath(row: 0, section: 0)
             tableView.scrollToRow(at: lastRowIndex, at: .top, animated: true)
         }

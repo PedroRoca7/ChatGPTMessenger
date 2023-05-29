@@ -10,23 +10,30 @@ import AVFoundation
 import UIKit
 import CoreGraphics
 
+protocol ChatManagerProtocol: AnyObject {
+    
+    func success()
+    func failure()
+}
+
 class ChatManager {
     
     let api = API()
     var player: AVAudioPlayer?
-    var messageList: [Message] = []
+    private var messageList: [Message] = []
+    weak var delegate: ChatManagerProtocol?
     
     // Método que faz a chamada da API.
-    func requestChat(text: String, completionHandler: @escaping (Bool) -> Void) {
+    func requestChat(text: String) -> Void {
         api.sendOpenAIRequest(text: text) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let success):
                 self.addMessage(message: success, type: .chatGPT)
-                completionHandler(true)
+                self.delegate?.success()
             case .failure(let failure):
-                completionHandler(false)
                 print(failure.localizedDescription)
+                self.delegate?.failure()
             }
         }
     }
@@ -49,8 +56,12 @@ class ChatManager {
         messageList.insert(Message(message: message.trimmingCharacters(in: .whitespacesAndNewlines), date: Date(), typeMessage: type), at: .zero)
     }
     
-    public var numberOfRowsInSection: Int {
+    public func count() -> Int {
         return messageList.count
+    }
+    
+    public var numberOfRowsInSection: Int {
+        return count()
     }
 
     public func loadCurrentMessage(indexPath: IndexPath) -> Message {
