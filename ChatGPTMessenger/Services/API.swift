@@ -15,9 +15,9 @@ enum OpenAIError: Error {
 
 class API {
     
-    static let authToken: String = ""
-    var openAIModelType: OpenAIModelType = .gpt3(.davinci)
-    var token: OpenAISwift = OpenAISwift(authToken: authToken)
+    private static let authToken: String = ""
+    private var openAIModelType: OpenAIModelType = .gpt3(.davinci)
+    private var token: OpenAISwift = OpenAISwift(authToken: authToken)
     
     func sendOpenAIRequest(text: String, completion: @escaping (Result<String, OpenAIError>) -> Void) {
         token.sendCompletion(with: text,model: openAIModelType, maxTokens: 4000, completionHandler: { result in

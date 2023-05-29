@@ -18,8 +18,8 @@ protocol ChatManagerProtocol: AnyObject {
 
 class ChatManager {
     
-    let api = API()
-    var player: AVAudioPlayer?
+    private let api = API()
+    private var player: AVAudioPlayer?
     private var messageList: [Message] = []
     weak var delegate: ChatManagerProtocol?
     
@@ -38,7 +38,7 @@ class ChatManager {
         }
     }
     // Método que faz emitir o som.
-    func playsound() {
+    public func playsound() {
         guard let url = Bundle.main.url(forResource: "send", withExtension: "wav") else { return }
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
