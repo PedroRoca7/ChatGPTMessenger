@@ -15,11 +15,12 @@ enum OpenAIError: Error {
 
 class API {
     
-    private static let authToken: String = ""
+    private static let authToken: String = ProcessInfo.processInfo.environment["authToken"] ?? ""
     private var openAIModelType: OpenAIModelType = .gpt3(.davinci)
     private var token: OpenAISwift = OpenAISwift(authToken: authToken)
     
     func sendOpenAIRequest(text: String, completion: @escaping (Result<String, OpenAIError>) -> Void) {
+        
         token.sendCompletion(with: text,model: openAIModelType, maxTokens: 4000, completionHandler: { result in
             DispatchQueue.main.async {
                 switch result {
