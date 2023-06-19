@@ -21,6 +21,7 @@
 		CE860FA62A0B117000E88384 /* ChatGPTMessengerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE860FA52A0B117000E88384 /* ChatGPTMessengerTests.swift */; };
 		CE860FB02A0B117000E88384 /* ChatGPTMessengerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE860FAF2A0B117000E88384 /* ChatGPTMessengerUITests.swift */; };
 		CE860FB22A0B117000E88384 /* ChatGPTMessengerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE860FB12A0B117000E88384 /* ChatGPTMessengerUITestsLaunchTests.swift */; };
+		CEF093C52A40CA380040CA1B /* ChaveApiKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEF093C42A40CA380040CA1B /* ChaveApiKey.plist */; };
 		CEF0A9622A0C7D770042069B /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = CEF0A9612A0C7D770042069B /* OpenAISwift */; };
 		CEF0A9652A0C81BE0042069B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF0A9642A0C81BE0042069B /* API.swift */; };
 		CEF0A96B2A0C8B8E0042069B /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF0A96A2A0C8B8E0042069B /* ChatManager.swift */; };
@@ -62,6 +63,7 @@
 		CE860FAB2A0B117000E88384 /* ChatGPTMessengerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatGPTMessengerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE860FAF2A0B117000E88384 /* ChatGPTMessengerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTMessengerUITests.swift; sourceTree = "<group>"; };
 		CE860FB12A0B117000E88384 /* ChatGPTMessengerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTMessengerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CEF093C42A40CA380040CA1B /* ChaveApiKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ChaveApiKey.plist; sourceTree = "<group>"; };
 		CEF0A9642A0C81BE0042069B /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CEF0A96A2A0C8B8E0042069B /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,6 +162,7 @@
 				CE860F992A0B116F00E88384 /* LaunchScreen.storyboard */,
 				CE860F972A0B116F00E88384 /* Assets.xcassets */,
 				CE860F9C2A0B116F00E88384 /* Info.plist */,
+				CEF093C42A40CA380040CA1B /* ChaveApiKey.plist */,
 			);
 			path = ChatGPTMessenger;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 			files = (
 				CE860F9B2A0B116F00E88384 /* LaunchScreen.storyboard in Resources */,
 				CE860F982A0B116F00E88384 /* Assets.xcassets in Resources */,
+				CEF093C52A40CA380040CA1B /* ChaveApiKey.plist in Resources */,
 				CE6F81D32A0D8F1600CE396C /* send.wav in Resources */,
 				CE860F962A0B116900E88384 /* Main.storyboard in Resources */,
 			);

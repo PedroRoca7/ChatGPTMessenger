@@ -15,10 +15,12 @@ enum OpenAIError: Error {
 
 class API {
     
-    private static let authToken: String = ProcessInfo.processInfo.environment["authToken"] ?? ""
+    private static let authToken = ENV.SERVICE_API_KEY
     private var openAIModelType: OpenAIModelType = .gpt3(.davinci)
     private var token: OpenAISwift = OpenAISwift(authToken: authToken)
     
+ 
+
     func sendOpenAIRequest(text: String, completion: @escaping (Result<String, OpenAIError>) -> Void) {
         
         token.sendCompletion(with: text,model: openAIModelType, maxTokens: 4000, completionHandler: { result in
@@ -36,4 +38,24 @@ class API {
             }
         })
     }
+}
+
+class ChaveEnv: APIKeyable {
+    
+    let dict: NSDictionary
+    
+    init(resourceName: String = "ChaveApiKey") {
+        guard let filePath: String = Bundle.main.path(forResource: resourceName, ofType: "plist"), let plist = NSDictionary(contentsOfFile: filePath) else {
+            fatalError("Não foi possivel encontrar o arquivo '\(resourceName)' plist")
+        }
+        self.dict = plist
+    }
+        
+    var SERVICE_API_KEY: String {
+        dict.object(forKey: "SERVICE_API_KEY") as? String ?? ""
+    }
+}
+
+protocol APIKeyable {
+    var SERVICE_API_KEY: String { get }
 }
