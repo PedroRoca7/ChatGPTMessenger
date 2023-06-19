@@ -33,8 +33,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-
-var ENV: APIKeyable {
-    return ChaveEnv()
-}
-
