@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE2273BB2A537A8D00AA7618 /* send.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE2273BA2A537A8D00AA7618 /* send.wav */; };
 		CE2D45612A12876300FA86AB /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2D45602A12876300FA86AB /* Message.swift */; };
-		CE6F81D32A0D8F1600CE396C /* send.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE6F81D22A0D8F1500CE396C /* send.wav */; };
 		CE6F81D62A0D942900CE396C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F81D52A0D942900CE396C /* Extensions.swift */; };
 		CE6F81D92A0D950F00CE396C /* OutgoingTextMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F81D82A0D950F00CE396C /* OutgoingTextMessageTableViewCell.swift */; };
 		CE6F81DE2A0DD06800CE396C /* IncomingTextMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F81DD2A0DD06800CE396C /* IncomingTextMessageTableViewCell.swift */; };
@@ -44,8 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE2273BA2A537A8D00AA7618 /* send.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = send.wav; sourceTree = "<group>"; };
 		CE2D45602A12876300FA86AB /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		CE6F81D22A0D8F1500CE396C /* send.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = send.wav; path = "../../../../../Downloads/CHATGPT - WILL ADICIONE ESSE ARQUIVO EM TODOS OS VIDEOS DO CHATGPT POIS É O ARQUIVO DO PROJETO INICIAL/CHATGPT/Utils/Sound/send.wav"; sourceTree = "<group>"; };
 		CE6F81D52A0D942900CE396C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CE6F81D82A0D950F00CE396C /* OutgoingTextMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingTextMessageTableViewCell.swift; sourceTree = "<group>"; };
 		CE6F81DD2A0DD06800CE396C /* IncomingTextMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingTextMessageTableViewCell.swift; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 		CE6F81D12A0D8EF200CE396C /* Sound */ = {
 			isa = PBXGroup;
 			children = (
-				CE6F81D22A0D8F1500CE396C /* send.wav */,
+				CE2273BA2A537A8D00AA7618 /* send.wav */,
 			);
 			path = Sound;
 			sourceTree = "<group>";
@@ -326,7 +326,7 @@
 			files = (
 				CE860F9B2A0B116F00E88384 /* LaunchScreen.storyboard in Resources */,
 				CE860F982A0B116F00E88384 /* Assets.xcassets in Resources */,
-				CE6F81D32A0D8F1600CE396C /* send.wav in Resources */,
+				CE2273BB2A537A8D00AA7618 /* send.wav in Resources */,
 				CE860F962A0B116900E88384 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
