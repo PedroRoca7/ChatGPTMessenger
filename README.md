@@ -13,7 +13,7 @@ O ChatGPTMessenger funciona da seguinte maneira o usuário digita um texto para 
   <img src="https://github.com/PedroRoca7/ChatGPTMessenger/assets/118369268/4b315dae-1102-47a5-97a8-583ac88fb118" width= "270px"/>
 </div>
 
-### Tela com resposta do chatGPT ------------- Imagem gerada
+### Tela com resposta do chatGPT
 <div> 
   <img src="https://github.com/PedroRoca7/ChatGPTMessenger/assets/118369268/1a42f49f-9da1-4164-a85a-c96650da96e5" width= "260px"/>
 </div>
